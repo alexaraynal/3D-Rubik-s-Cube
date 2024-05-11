@@ -194,17 +194,14 @@ var
   Order: array[1..56] of Integer;
   OrderCubie: array[1..6] of Integer;
   CaraPant: Array[1..4] of TPoint;
-  XScreen,
-  YScreen: Integer;
+  XPantalla,
+  YPantalla: Integer;
   EyeToObj, EyeToScreen: Real;
   alpha : Real;
   Xaxis, Yaxis, Zaxis : TVector3D;
   rep, LayerR: Integer;
-  MyOrange, MyGreen, MyYellow : TColor;
 
 const
-  SizeCube = 20;
-
   TopL = 1;
   MidH = 2;
   Bottom = 3;
@@ -279,47 +276,46 @@ end;
 procedure StartCubie(var Cube: TCubie; x, y, z: Real; cubie: Integer);
 begin
   //Front White
-  Cube.Caras[1].Points[1] := Point3D(x - SizeCube div 2, y - SizeCube div 2, z - SizeCube div 2);
-  Cube.Caras[1].Points[2] := Point3D(x - SizeCube div 2, y + SizeCube div 2, z - SizeCube div 2);
-  Cube.Caras[1].Points[3] := Point3D(x + SizeCube div 2, y + SizeCube div 2, z - SizeCube div 2);
-  Cube.Caras[1].Points[4] := Point3D(x + SizeCube div 2, y - SizeCube div 2, z - SizeCube div 2);
+  Cube.Caras[1].Points[1] := Point3D(x-6, y-6, z-6);
+  Cube.Caras[1].Points[2] := Point3D(x-6, y+6, z-6);
+  Cube.Caras[1].Points[3] := Point3D(x+6, y+6, z-6);
+  Cube.Caras[1].Points[4] := Point3D(x+6, y-6, z-6);
+
   Cube.Caras[1].Color := clWhite;
-
   //Back Yellow
-  Cube.Caras[2].Points[1] := Point3D(x - SizeCube div 2, y - SizeCube div 2, z + SizeCube div 2);
-  Cube.Caras[2].Points[2] := Point3D(x - SizeCube div 2, y + SizeCube div 2, z + SizeCube div 2);
-  Cube.Caras[2].Points[3] := Point3D(x + SizeCube div 2, y + SizeCube div 2, z + SizeCube div 2);
-  Cube.Caras[2].Points[4] := Point3D(x + SizeCube div 2, y - SizeCube div 2, z + SizeCube div 2);
-  Cube.Caras[2].Color := MyYellow;
+  Cube.Caras[2].Points[1] := Point3D(x-6, y-6, z+6);
+  Cube.Caras[2].Points[2] := Point3D(x-6, y+6, z+6);
+  Cube.Caras[2].Points[3] := Point3D(x+6, y+6, z+6);
+  Cube.Caras[2].Points[4] := Point3D(x+6, y-6, z+6);
 
+  Cube.Caras[2].Color := clYellow;
   //Top Green
-  Cube.Caras[3].Points[1] := Point3D(x - SizeCube div 2, y - SizeCube div 2, z + SizeCube div 2);
-  Cube.Caras[3].Points[2] := Point3D(x - SizeCube div 2, y - SizeCube div 2, z - SizeCube div 2);
-  Cube.Caras[3].Points[3] := Point3D(x + SizeCube div 2, y - SizeCube div 2, z - SizeCube div 2);
-  Cube.Caras[3].Points[4] := Point3D(x + SizeCube div 2, y - SizeCube div 2, z + SizeCube div 2);
-  Cube.Caras[3].Color := MyGreen;
+  Cube.Caras[3].Points[1] := Point3D(x-6, y-6, z+6);
+  Cube.Caras[3].Points[2] := Point3D(x-6, y-6, z-6);
+  Cube.Caras[3].Points[3] := Point3D(x+6, y-6, z-6);
+  Cube.Caras[3].Points[4] := Point3D(x+6, y-6, z+6);
 
+  Cube.Caras[3].Color := clGreen;
   //Bottom Blue
-  Cube.Caras[4].Points[1] := Point3D(x - SizeCube div 2, y + SizeCube div 2, z + SizeCube div 2);
-  Cube.Caras[4].Points[2] := Point3D(x - SizeCube div 2, y + SizeCube div 2, z - SizeCube div 2);
-  Cube.Caras[4].Points[3] := Point3D(x + SizeCube div 2, y + SizeCube div 2, z - SizeCube div 2);
-  Cube.Caras[4].Points[4] := Point3D(x + SizeCube div 2, y + SizeCube div 2, z + SizeCube div 2);
+  Cube.Caras[4].Points[1] := Point3D(x-6, y+6, z+6);
+  Cube.Caras[4].Points[2] := Point3D(x-6, y+6, z-6);
+  Cube.Caras[4].Points[3] := Point3D(x+6, y+6, z-6);
+  Cube.Caras[4].Points[4] := Point3D(x+6, y+6, z+6);
+
   Cube.Caras[4].Color := clBlue;
-
   //Right Orange
-  Cube.Caras[5].Points[1] := Point3D(x + SizeCube div 2, y - SizeCube div 2, z - SizeCube div 2);
-  Cube.Caras[5].Points[2] := Point3D(x + SizeCube div 2, y + SizeCube div 2, z - SizeCube div 2);
-  Cube.Caras[5].Points[3] := Point3D(x + SizeCube div 2, y + SizeCube div 2, z + SizeCube div 2);
-  Cube.Caras[5].Points[4] := Point3D(x + SizeCube div 2, y - SizeCube div 2, z + SizeCube div 2);
-  Cube.Caras[5].Color := MyOrange;
+  Cube.Caras[5].Points[1] := Point3D(x+6, y-6, z-6);
+  Cube.Caras[5].Points[2] := Point3D(x+6, y+6, z-6);
+  Cube.Caras[5].Points[3] := Point3D(x+6, y+6, z+6);
+  Cube.Caras[5].Points[4] := Point3D(x+6, y-6, z+6);
 
+  Cube.Caras[5].Color := clOlive;
   //Left Red
-  Cube.Caras[6].Points[1] := Point3D(x - SizeCube div 2, y - SizeCube div 2, z - SizeCube div 2);
-  Cube.Caras[6].Points[2] := Point3D(x - SizeCube div 2, y + SizeCube div 2, z - SizeCube div 2);
-  Cube.Caras[6].Points[3] := Point3D(x - SizeCube div 2, y + SizeCube div 2, z + SizeCube div 2);
-  Cube.Caras[6].Points[4] := Point3D(x - SizeCube div 2, y - SizeCube div 2, z + SizeCube div 2);
+  Cube.Caras[6].Points[1] := Point3D(x-6, y-6, z-6);
+  Cube.Caras[6].Points[2] := Point3D(x-6, y+6, z-6);
+  Cube.Caras[6].Points[3] := Point3D(x-6, y+6, z+6);
+  Cube.Caras[6].Points[4] := Point3D(x-6, y-6, z+6);
   Cube.Caras[6].Color := clRed;
-
 
   case cubie of
     1:
@@ -622,41 +618,44 @@ end;
 procedure StartRubik();
 var
   i,j,k,n,l: Integer;
+  //x,y,z: Real;
+  //OutputFile, OutputFile2: TextFile;
 begin
 
     Xaxis := Vector3D(1,0,0);
     Yaxis := Vector3D(0,1,0);
     Zaxis := Vector3D(0,0,1);
 
-    StartCubie(Rubik.Cubes[1], -SizeCube, -SizeCube, -SizeCube, 1);
-    StartCubie(Rubik.Cubes[2], 0, -SizeCube, -SizeCube, 2);
-    StartCubie(Rubik.Cubes[3], SizeCube, -SizeCube, -SizeCube, 3);
-    StartCubie(Rubik.Cubes[4], -SizeCube, 0, -SizeCube, 4);
-    StartCubie(Rubik.Cubes[5], 0, 0, -SizeCube, 5);
-    StartCubie(Rubik.Cubes[6], SizeCube, 0, -SizeCube, 6);
-    StartCubie(Rubik.Cubes[7], -SizeCube, SizeCube, -SizeCube, 7);
-    StartCubie(Rubik.Cubes[8], 0, SizeCube, -SizeCube, 8);
-    StartCubie(Rubik.Cubes[9], SizeCube, SizeCube, -SizeCube, 9);
+    StartCubie(Rubik.Cubes[1], -12, -12, -12, 1);
+    StartCubie(Rubik.Cubes[2],  0, -12, -12, 2);
+    StartCubie(Rubik.Cubes[3], 12, -12, -12, 3);
+    StartCubie(Rubik.Cubes[4], -12,   0, -12, 4);
+    StartCubie(Rubik.Cubes[5],  0,   0, -12, 5);
+    StartCubie(Rubik.Cubes[6], 12,   0, -12, 6);
+    StartCubie(Rubik.Cubes[7], -12,  12, -12, 7);
+    StartCubie(Rubik.Cubes[8], 0,  12, -12, 8);
+    StartCubie(Rubik.Cubes[9], 12,  12, -12, 9);
 
-    StartCubie(Rubik.Cubes[10], -SizeCube, -SizeCube, 0, 10);
-    StartCubie(Rubik.Cubes[11], 0, -SizeCube, 0, 11);
-    StartCubie(Rubik.Cubes[12], SizeCube, -SizeCube, 0, 12);
-    StartCubie(Rubik.Cubes[13], -SizeCube, 0, 0, 13);
+
+    StartCubie(Rubik.Cubes[10], -12, -12,  0, 10);
+    StartCubie(Rubik.Cubes[11], 0, -12,  0, 11);
+    StartCubie(Rubik.Cubes[12], 12, -12,  0, 12); //This one
+    StartCubie(Rubik.Cubes[13], -12,   0,  0, 13);
     StartCubie(Rubik.Cubes[14], 0, 0, 0, 14);
-    StartCubie(Rubik.Cubes[15], SizeCube, 0, 0, 15);
-    StartCubie(Rubik.Cubes[16], -SizeCube, SizeCube, 0, 16);
-    StartCubie(Rubik.Cubes[17], 0, SizeCube, 0, 17);
-    StartCubie(Rubik.Cubes[18], SizeCube, SizeCube, 0, 18);
+    StartCubie(Rubik.Cubes[15], 12,   0,  0, 15);
+    StartCubie(Rubik.Cubes[16], -12,  12,  0, 16);
+    StartCubie(Rubik.Cubes[17],  0,  12,  0, 17);
+    StartCubie(Rubik.Cubes[18], 12,  12,  0, 18);
 
-    StartCubie(Rubik.Cubes[19], -SizeCube, -SizeCube, SizeCube, 19);
-    StartCubie(Rubik.Cubes[20], 0, -SizeCube, SizeCube, 20);
-    StartCubie(Rubik.Cubes[21], SizeCube, -SizeCube, SizeCube, 21);
-    StartCubie(Rubik.Cubes[22], -SizeCube, 0, SizeCube, 22);
-    StartCubie(Rubik.Cubes[23], 0, 0, SizeCube, 23);
-    StartCubie(Rubik.Cubes[24], SizeCube, 0, SizeCube, 24);
-    StartCubie(Rubik.Cubes[25], -SizeCube, SizeCube, SizeCube, 25);
-    StartCubie(Rubik.Cubes[26], 0, SizeCube, SizeCube, 26);
-    StartCubie(Rubik.Cubes[27], SizeCube, SizeCube, SizeCube, 27);
+    StartCubie(Rubik.Cubes[19], -12, -12, 12, 19);
+    StartCubie(Rubik.Cubes[20],  0, -12, 12, 20);
+    StartCubie(Rubik.Cubes[21], 12, -12, 12, 21);
+    StartCubie(Rubik.Cubes[22], -12,   0, 12, 22);
+    StartCubie(Rubik.Cubes[23], 0,   0, 12, 23);
+    StartCubie(Rubik.Cubes[24], 12,   0, 12, 24);
+    StartCubie(Rubik.Cubes[25], -12,  12, 12, 25);
+    StartCubie(Rubik.Cubes[26], 0,  12, 12, 26);
+    StartCubie(Rubik.Cubes[27], 12,  12, 12, 27);
 
     n := 1; // Initialize index for Rubik.VisibleFaces array
     for i := 1 to 27 do
@@ -673,22 +672,33 @@ begin
     end;
 
     //Initialize Layer
-
+    //Front Layers
     for i := 1 to 3 do
     begin
       for j := 1 to 3 do
       begin
-        //Front Layers
         Rubik.FrontLayer[i,j] := 1 + (j-1) + 3*(i-1);
         Rubik.MidFLayer[i,j] := 10 + (j-1) + 3*(i-1);
         Rubik.BackLayer[i,j] := 19 + (j-1) + 3*(i-1);
+      end;
+    end;
 
-        //Vertical Layers
+    //Vertical Layers
+    for i := 1 to 3 do
+    begin
+      for j := 1 to 3 do
+      begin
         Rubik.LeftLayer[i,j] := 19- 9*(j-1) + 3*(i-1);
         Rubik.MidVLayer[i,j] := 20- 9*(j-1) + 3*(i-1);
         Rubik.RightLayer[i,j] := 21- 9*(j-1) + 3*(i-1);
+      end;
+    end;
 
-        //Horizontal Layers
+    //Horizontal Layers
+    for i := 1 to 3 do
+    begin
+      for j := 1 to 3 do
+      begin
         Rubik.TopLayer[i,j] := 19- 9*(i-1) + (j-1);
         Rubik.MidHLayer[i,j] := 22- 9*(i-1) + (j-1);
         Rubik.BottomLayer[i,j] := 25- 9*(i-1) + (j-1);
@@ -747,8 +757,8 @@ procedure Perspective(x, y, z: Real; var xP, yP: Integer);
     zAux: Real;
   begin
     zAux := EyeToObj + z;
-    xP := Round((EyeToScreen * x) / zAux * 200) + XScreen;
-    yP := Round((EyeToScreen * y) / zAux * 200) + YScreen;
+    xP := Round((EyeToScreen * x) / zAux * 200) + XPantalla;
+    yP := Round((EyeToScreen * y) / zAux * 200) + YPantalla;
 end;
 
 //Draw the entirety of the Rubiks Cube
@@ -995,11 +1005,15 @@ begin
     end;
 end;
 
+
+
+
 //Layer Rotation
 procedure RotateLayer(Layer: Integer; Dir: Integer);
 var
   i,j,k: Integer;
   alpha: real;
+  OutputFile: TextFile;
 begin
   alpha := (Dir)*((30*Pi) / 180);
   case Layer of
@@ -1709,7 +1723,7 @@ end;
 procedure TForm4.Button35Click(Sender: TObject);
 begin
   rep := 0;
-  Timer1.Interval := 100; // Set interval to 1 second
+  Timer1.Interval := 200; // Set interval to 1 second
   Timer1.Enabled := True; // Start the timer
   LayerR := FrontClock;
 
@@ -1719,7 +1733,7 @@ end;
 procedure TForm4.Button36Click(Sender: TObject);
 begin
   rep := 0;
-  Timer1.Interval := 100; // Set interval to 1 second
+  Timer1.Interval := 200; // Set interval to 1 second
   Timer1.Enabled := True; // Start the timer
   LayerR := FrontCounter;
 end;
@@ -1728,7 +1742,7 @@ end;
 procedure TForm4.Button37Click(Sender: TObject);
 begin
   rep := 0;
-  Timer1.Interval := 100; // Set interval to 1 second
+  Timer1.Interval := 200; // Set interval to 1 second
   Timer1.Enabled := True; // Start the timer
   LayerR := RightClock;
 end;
@@ -1737,7 +1751,7 @@ end;
 procedure TForm4.Button38Click(Sender: TObject);
 begin
   rep := 0;
-  Timer1.Interval := 100; // Set interval to 1 second
+  Timer1.Interval := 200; // Set interval to 1 second
   Timer1.Enabled := True; // Start the timer
   LayerR := RightCounter;
 end;
@@ -1746,7 +1760,7 @@ end;
 procedure TForm4.Button39Click(Sender: TObject);
 begin
   rep := 0;
-  Timer1.Interval := 100; // Set interval to 1 second
+  Timer1.Interval := 200; // Set interval to 1 second
   Timer1.Enabled := True; // Start the timer
   LayerR := TopClock;
 end;
@@ -1760,7 +1774,7 @@ end;
 procedure TForm4.Button40Click(Sender: TObject);
 begin
   rep := 0;
-  Timer1.Interval := 100; // Set interval to 1 second
+  Timer1.Interval := 200; // Set interval to 1 second
   Timer1.Enabled := True; // Start the timer
   LayerR := TopCounter;
 end;
@@ -1769,7 +1783,7 @@ end;
 procedure TForm4.Button41Click(Sender: TObject);
 begin
   rep := 0;
-  Timer1.Interval := 100; // Set interval to 1 second
+  Timer1.Interval := 200; // Set interval to 1 second
   Timer1.Enabled := True; // Start the timer
   LayerR := MidFClock;
 end;
@@ -1778,7 +1792,7 @@ end;
 procedure TForm4.Button42Click(Sender: TObject);
 begin
   rep := 0;
-  Timer1.Interval := 100; // Set interval to 1 second
+  Timer1.Interval := 200; // Set interval to 1 second
   Timer1.Enabled := True; // Start the timer
   LayerR := MidVClock;
 end;
@@ -1787,7 +1801,7 @@ end;
 procedure TForm4.Button43Click(Sender: TObject);
 begin
   rep := 0;
-  Timer1.Interval := 100; // Set interval to 1 second
+  Timer1.Interval := 200; // Set interval to 1 second
   Timer1.Enabled := True; // Start the timer
   LayerR := MidHClock;
 end;
@@ -1796,7 +1810,7 @@ end;
 procedure TForm4.Button44Click(Sender: TObject);
 begin
   rep := 0;
-  Timer1.Interval := 100; // Set interval to 1 second
+  Timer1.Interval := 200; // Set interval to 1 second
   Timer1.Enabled := True; // Start the timer
   LayerR := MidFCounter;
 end;
@@ -1805,7 +1819,7 @@ end;
 procedure TForm4.Button45Click(Sender: TObject);
 begin
   rep := 0;
-  Timer1.Interval := 100; // Set interval to 1 second
+  Timer1.Interval := 200; // Set interval to 1 second
   Timer1.Enabled := True; // Start the timer
   LayerR := MidVCounter;
 end;
@@ -1814,7 +1828,7 @@ end;
 procedure TForm4.Button46Click(Sender: TObject);
 begin
   rep := 0;
-  Timer1.Interval := 100; // Set interval to 1 second
+  Timer1.Interval := 200; // Set interval to 1 second
   Timer1.Enabled := True; // Start the timer
   LayerR := MidHCounter;
 end;
@@ -1823,7 +1837,7 @@ end;
 procedure TForm4.Button47Click(Sender: TObject);
 begin
 rep := 0;
-  Timer1.Interval := 100; // Set interval to 1 second
+  Timer1.Interval := 200; // Set interval to 1 second
   Timer1.Enabled := True; // Start the timer
   LayerR := BottomClock;
 end;
@@ -1832,7 +1846,7 @@ end;
 procedure TForm4.Button48Click(Sender: TObject);
 begin
   rep := 0;
-  Timer1.Interval := 100; // Set interval to 1 second
+  Timer1.Interval := 200; // Set interval to 1 second
   Timer1.Enabled := True; // Start the timer
   LayerR := LeftClock;
 end;
@@ -1841,7 +1855,7 @@ end;
 procedure TForm4.Button49Click(Sender: TObject);
 begin
   rep := 0;
-  Timer1.Interval := 100; // Set interval to 1 second
+  Timer1.Interval := 200; // Set interval to 1 second
   Timer1.Enabled := True; // Start the timer
   LayerR := BackClock;
 end;
@@ -1861,7 +1875,7 @@ end;
 procedure TForm4.Button51Click(Sender: TObject);
 begin
   rep := 0;
-  Timer1.Interval := 100; // Set interval to 1 second
+  Timer1.Interval := 200; // Set interval to 1 second
   Timer1.Enabled := True; // Start the timer
   LayerR := BackCounter;
 end;
@@ -1870,7 +1884,7 @@ end;
 procedure TForm4.Button52Click(Sender: TObject);
 begin
   rep := 0;
-  Timer1.Interval := 100; // Set interval to 1 second
+  Timer1.Interval := 200; // Set interval to 1 second
   Timer1.Enabled := True; // Start the timer
   LayerR := LeftCounter;
 end;
@@ -1879,7 +1893,7 @@ end;
 procedure TForm4.Button53Click(Sender: TObject);
 begin
   rep := 0;
-  Timer1.Interval := 100; // Set interval to 1 second
+  Timer1.Interval := 200; // Set interval to 1 second
   Timer1.Enabled := True; // Start the timer
   LayerR := BottomCounter;
 end;
@@ -1975,11 +1989,8 @@ end;
 //Form is created
 procedure TForm4.FormCreate(Sender: TObject);
 begin
-  XScreen := Image1.Width div 2;
-  YScreen := Image1.Height div 2;
-  MyOrange := RGB(255, 89, 0);
-  MyGreen := RGB(70, 239, 82);
-  MyYellow := RGB(255, 228, 44);
+  XPantalla := 200;
+  YPantalla := 200;
   EyeToObj := 300.0;
   EyeToScreen := 5;
   StartRubik();

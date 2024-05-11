@@ -538,7 +538,7 @@ object Form4: TForm4
       Left = 137
       Top = 128
       Width = 51
-      Height = 21
+      Height = 22
       TabOrder = 53
     end
     object Button54: TButton
