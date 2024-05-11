@@ -1,3 +1,4 @@
+![3D Rubik's Cube](3D%20RUBIK’S%20CUBE%20(1).png)
 Overview
 This project is a comprehensive Rubik's Cube simulator and solver implemented in Delphi. It provides an immersive experience of interacting with a virtual Rubik's Cube, including rotating individual layers, drawing each cubie individually, and employing various algorithms for solving the cube.
 
