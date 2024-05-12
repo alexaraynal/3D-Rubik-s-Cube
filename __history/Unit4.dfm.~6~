@@ -74,7 +74,7 @@ object Form4: TForm4
     object Label4: TLabel
       Left = 24
       Top = 116
-      Width = 164
+      Width = 178
       Height = 16
       Caption = 'Insert Cube for Rotation:'
       Font.Charset = DEFAULT_CHARSET

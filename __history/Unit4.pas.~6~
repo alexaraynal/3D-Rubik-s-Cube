@@ -774,8 +774,6 @@ begin
   //Clear the canvas
   Form4.Image1.Canvas.Brush.Color := clBlack;
   Form4.Image1.Canvas.FillRect(Rect(0, 0, Form4.Image1.Width, Form4.Image1.Height));
-  Form4.Image1.Canvas.Font.Color := clWhite;
-  Form4.Image1.Canvas.TextOut((Form4.Image1.Width div 2) - 50, Form4.Image1.Height div 8, 'Alexa Raynal Cobo © 2024 MIT License');
 
   n := 1; // Initialize index for Rubik.VisibleFaces array
     for i := 1 to 27 do
