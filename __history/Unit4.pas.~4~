@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, ExtCtrls, Buttons;
+  Dialogs, StdCtrls, ExtCtrls;
 
 type
   TPoint3D = record
@@ -121,16 +121,6 @@ type
     Button58: TButton;
     Button59: TButton;
     Button54: TButton;
-    Label5: TLabel;
-    Label6: TLabel;
-    Label7: TLabel;
-    Label8: TLabel;
-    Label9: TLabel;
-    Label10: TLabel;
-    procedure Image1MouseMove(Sender: TObject; Shift: TShiftState; X,
-      Y: Integer);
-    procedure Image1MouseUp(Sender: TObject; Button: TMouseButton;
-      Shift: TShiftState; X, Y: Integer);
     procedure Button59Click(Sender: TObject);
     procedure Button58Click(Sender: TObject);
     procedure Button57Click(Sender: TObject);
@@ -194,10 +184,15 @@ type
     procedure Button14Click(Sender: TObject);
     procedure Image1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
+    procedure Image1MouseMove(Sender: TObject; Shift: TShiftState; X,
+      Y: Integer);
+    procedure Image1MouseUp(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
   private
     { Private declarations }
     FMouseDown: Boolean;
     FLastMousePos: TPoint;
+    FAngle: Single;
   public
     { Public declarations }
   end;
@@ -772,7 +767,7 @@ var
   OutputFile: TextFile;
 begin
   //Clear the canvas
-  Form4.Image1.Canvas.Brush.Color := clBlack;
+  Form4.Image1.Canvas.Brush.Color := clWhite;
   Form4.Image1.Canvas.FillRect(Rect(0, 0, Form4.Image1.Width, Form4.Image1.Height));
 
   n := 1; // Initialize index for Rubik.VisibleFaces array
@@ -842,7 +837,7 @@ var
   f,l,n: Integer;
 begin
   //Clear the canvas
-  Form4.Image1.Canvas.Brush.Color := clBlack;
+  Form4.Image1.Canvas.Brush.Color := clWhite;
   Form4.Image1.Canvas.FillRect(Rect(0, 0, Form4.Image1.Width, Form4.Image1.Height));
   for f := 1 to 6 do
     begin
@@ -2001,87 +1996,36 @@ begin
 
 end;
 
-
-//Mouse movement---------------------------------------------------------
-
-procedure RotateMouse(AngleX, AngleY, AngleZ : Real);
-var
-  alphaX, alphaY, alphaZ : real;
-  i : Integer;
-begin
-
-  alphaX := ((AngleX*Pi) / 180);
-  alphaY := ((AngleY*Pi) / 180);
-  alphaZ := ((AngleZ*Pi) / 180);
-
-  UpdateAxesAfterCubeRotation(Vector3D(1,0,0), alphaX);
-  UpdateAxesAfterCubeRotation(Vector3D(0,1,0), alphaY);
-  UpdateAxesAfterCubeRotation(Vector3D(0,0,1), alphaZ);
-
-  // Rotate each cubie around the center of the Rubik's Cube
-  for i := 1 to 27 do
-    begin
-      //Rotate X
-        RotateCubie(Rubik.Cubes[i], alphaX, Vector3D(1,0,0));
-        //Rotate Y
-        RotateCubie(Rubik.Cubes[i], alphaY, Vector3D(0,1,0));
-        //Rotate Z
-        RotateCubie(Rubik.Cubes[i], alphaZ, Vector3D(0,0,1));
-    end;
-
-  // Redraw the Rubik's Cube
-  DrawRubik();
-  
-end;
-
 procedure TForm4.Image1MouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
   FMouseDown := True;
-  FLastMousePos := Point(X, Y); //Saves the position of the mouse
+  FLastMousePos := Point(X, Y);
 end;
 
-//Responsible of Rotations
 procedure TForm4.Image1MouseMove(Sender: TObject; Shift: TShiftState; X,
   Y: Integer);
 var
-  DeltaX, DeltaY: Integer;
-  Distance: Double;
-  AngleX, AngleY, AngleZ: Real;
+  i:Integer;
 const
   Sensitivity = 0.5; // Adjust sensitivity as needed
 begin
-
   if FMouseDown then
   begin
-    DeltaX := X - FLastMousePos.X;
-    DeltaY := Y - FLastMousePos.Y;
-    //OutputDebugString(PChar(Format('DeltaX: %d, DeltaY: %d', [DeltaX, DeltaY])));
+    if X > FLastMousePos.X then
+      FAngle := FAngle + Sensitivity
+    else if X < FLastMousePos.X then
+      FAngle := FAngle - Sensitivity;
 
-    Distance := Sqrt(Sqr(DeltaX) + Sqr(DeltaY)); // Total distance moved
-
-    AngleX := 0; // Assume no X-axis rotation by default
-    AngleY := 0; // Assume no Y-axis rotation by default
-    AngleZ := 0; // Assume no Z-axis rotation by default
-
-    if Distance > 0 then // Prevent division by zero
+    UpdateAxesAfterCubeRotation(Vector3D(0,1,0), FAngle);
+    // Rotate each cubie around the center of the Rubik's Cube
+    for i := 1 to 27 do
     begin
-      // Calculate the rotation angles based on the horizontal and vertical movement
-      AngleX := Sensitivity * -DeltaY; // Y-axis rotation
-      AngleY := Sensitivity * DeltaX; // X-axis rotation
-
-      //OutputDebugString(PChar(Format('AngleX: %f, AngleY: %f', [AngleX, AngleY])));
+        RotateCubie(Rubik.Cubes[i], FAngle, Vector3D(0,1,0));
     end;
 
-    //Stays the same
-    if ssMiddle in Shift then // Rotate around Z-axis
-    begin
-      AngleX := 0;
-      AngleY := 0;
-      AngleZ := Sensitivity * -DeltaY + Sensitivity * DeltaX;
-    end;
-
-    RotateMouse(AngleX, AngleY, AngleZ);
+    // Redraw the Rubik's Cube
+    DrawRubik();
     FLastMousePos := Point(X, Y);
   end;
 end;
@@ -2091,6 +2035,7 @@ procedure TForm4.Image1MouseUp(Sender: TObject; Button: TMouseButton;
 begin
   FMouseDown := False;
 end;
+
 
 procedure TForm4.Timer1Timer(Sender: TObject);
 begin

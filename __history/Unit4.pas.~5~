@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, ExtCtrls, Buttons;
+  Dialogs, StdCtrls, ExtCtrls;
 
 type
   TPoint3D = record
@@ -121,12 +121,6 @@ type
     Button58: TButton;
     Button59: TButton;
     Button54: TButton;
-    Label5: TLabel;
-    Label6: TLabel;
-    Label7: TLabel;
-    Label8: TLabel;
-    Label9: TLabel;
-    Label10: TLabel;
     procedure Image1MouseMove(Sender: TObject; Shift: TShiftState; X,
       Y: Integer);
     procedure Image1MouseUp(Sender: TObject; Button: TMouseButton;
@@ -772,7 +766,7 @@ var
   OutputFile: TextFile;
 begin
   //Clear the canvas
-  Form4.Image1.Canvas.Brush.Color := clBlack;
+  Form4.Image1.Canvas.Brush.Color := clWhite;
   Form4.Image1.Canvas.FillRect(Rect(0, 0, Form4.Image1.Width, Form4.Image1.Height));
 
   n := 1; // Initialize index for Rubik.VisibleFaces array
@@ -842,7 +836,7 @@ var
   f,l,n: Integer;
 begin
   //Clear the canvas
-  Form4.Image1.Canvas.Brush.Color := clBlack;
+  Form4.Image1.Canvas.Brush.Color := clWhite;
   Form4.Image1.Canvas.FillRect(Rect(0, 0, Form4.Image1.Width, Form4.Image1.Height));
   for f := 1 to 6 do
     begin
@@ -2041,6 +2035,7 @@ begin
   FLastMousePos := Point(X, Y); //Saves the position of the mouse
 end;
 
+
 //Responsible of Rotations
 procedure TForm4.Image1MouseMove(Sender: TObject; Shift: TShiftState; X,
   Y: Integer);
@@ -2051,7 +2046,6 @@ var
 const
   Sensitivity = 0.5; // Adjust sensitivity as needed
 begin
-
   if FMouseDown then
   begin
     DeltaX := X - FLastMousePos.X;

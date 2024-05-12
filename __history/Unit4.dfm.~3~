@@ -1,0 +1,605 @@
+object Form4: TForm4
+  Left = 0
+  Top = 0
+  Caption = 'Form4'
+  ClientHeight = 814
+  ClientWidth = 1002
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Image1: TImage
+    Left = 8
+    Top = 8
+    Width = 986
+    Height = 593
+  end
+  object Panel1: TPanel
+    Left = 8
+    Top = 607
+    Width = 986
+    Height = 199
+    BevelEdges = []
+    BevelOuter = bvNone
+    Color = clSkyBlue
+    TabOrder = 0
+    object Label1: TLabel
+      Left = 664
+      Top = 5
+      Width = 26
+      Height = 13
+      Caption = 'Front'
+    end
+    object Label2: TLabel
+      Left = 752
+      Top = 5
+      Width = 30
+      Height = 13
+      Caption = 'Middle'
+    end
+    object Label3: TLabel
+      Left = 860
+      Top = 5
+      Width = 22
+      Height = 13
+      Caption = 'Back'
+    end
+    object Label4: TLabel
+      Left = 27
+      Top = 132
+      Width = 104
+      Height = 13
+      Caption = 'Ingrese Cubo a Rotar'
+    end
+    object Button1: TButton
+      Left = 8
+      Top = 8
+      Width = 25
+      Height = 25
+      Caption = '1'
+      TabOrder = 0
+      OnClick = Button1Click
+    end
+    object Button2: TButton
+      Left = 39
+      Top = 8
+      Width = 25
+      Height = 25
+      Caption = '2'
+      TabOrder = 1
+      OnClick = Button2Click
+    end
+    object Button3: TButton
+      Left = 70
+      Top = 8
+      Width = 25
+      Height = 25
+      Caption = '3'
+      TabOrder = 2
+      OnClick = Button3Click
+    end
+    object Button4: TButton
+      Left = 101
+      Top = 8
+      Width = 25
+      Height = 25
+      Caption = '4'
+      TabOrder = 3
+      OnClick = Button4Click
+    end
+    object Button5: TButton
+      Left = 132
+      Top = 8
+      Width = 25
+      Height = 25
+      Caption = '5'
+      TabOrder = 4
+      OnClick = Button5Click
+    end
+    object Button6: TButton
+      Left = 163
+      Top = 8
+      Width = 25
+      Height = 25
+      Caption = '6'
+      TabOrder = 5
+      OnClick = Button6Click
+    end
+    object Button7: TButton
+      Left = 194
+      Top = 8
+      Width = 25
+      Height = 25
+      Caption = '7'
+      TabOrder = 6
+      OnClick = Button7Click
+    end
+    object Button8: TButton
+      Left = 225
+      Top = 8
+      Width = 25
+      Height = 25
+      Caption = '8'
+      TabOrder = 7
+      OnClick = Button8Click
+    end
+    object Button9: TButton
+      Left = 256
+      Top = 8
+      Width = 25
+      Height = 25
+      Caption = '9'
+      TabOrder = 8
+      OnClick = Button9Click
+    end
+    object Button10: TButton
+      Left = 8
+      Top = 39
+      Width = 25
+      Height = 25
+      Caption = '10'
+      TabOrder = 9
+      OnClick = Button10Click
+    end
+    object Button11: TButton
+      Left = 39
+      Top = 39
+      Width = 25
+      Height = 25
+      Caption = '11'
+      TabOrder = 10
+      OnClick = Button11Click
+    end
+    object Button12: TButton
+      Left = 70
+      Top = 39
+      Width = 25
+      Height = 25
+      Caption = '12'
+      TabOrder = 11
+      OnClick = Button12Click
+    end
+    object Button13: TButton
+      Left = 101
+      Top = 39
+      Width = 25
+      Height = 25
+      Caption = '13'
+      TabOrder = 12
+      OnClick = Button13Click
+    end
+    object Button14: TButton
+      Left = 132
+      Top = 39
+      Width = 25
+      Height = 25
+      Caption = '14'
+      TabOrder = 13
+      OnClick = Button14Click
+    end
+    object Button15: TButton
+      Left = 163
+      Top = 39
+      Width = 25
+      Height = 25
+      Caption = '15'
+      TabOrder = 14
+      OnClick = Button15Click
+    end
+    object Button16: TButton
+      Left = 194
+      Top = 39
+      Width = 25
+      Height = 25
+      Caption = '16'
+      TabOrder = 15
+      OnClick = Button16Click
+    end
+    object Button17: TButton
+      Left = 225
+      Top = 39
+      Width = 25
+      Height = 25
+      Caption = '17'
+      TabOrder = 16
+      OnClick = Button17Click
+    end
+    object Button18: TButton
+      Left = 256
+      Top = 39
+      Width = 25
+      Height = 25
+      Caption = '18'
+      TabOrder = 17
+      OnClick = Button18Click
+    end
+    object Button19: TButton
+      Left = 8
+      Top = 70
+      Width = 25
+      Height = 25
+      Caption = '19'
+      TabOrder = 18
+      OnClick = Button19Click
+    end
+    object Button20: TButton
+      Left = 39
+      Top = 70
+      Width = 25
+      Height = 25
+      Caption = '20'
+      TabOrder = 19
+      OnClick = Button20Click
+    end
+    object Button21: TButton
+      Left = 70
+      Top = 70
+      Width = 25
+      Height = 25
+      Caption = '21'
+      TabOrder = 20
+      OnClick = Button21Click
+    end
+    object Button22: TButton
+      Left = 101
+      Top = 70
+      Width = 25
+      Height = 25
+      Caption = '22'
+      TabOrder = 21
+      OnClick = Button22Click
+    end
+    object Button23: TButton
+      Left = 132
+      Top = 70
+      Width = 25
+      Height = 25
+      Caption = '23'
+      TabOrder = 22
+      OnClick = Button23Click
+    end
+    object Button24: TButton
+      Left = 163
+      Top = 70
+      Width = 25
+      Height = 25
+      Caption = '24'
+      TabOrder = 23
+      OnClick = Button24Click
+    end
+    object Button25: TButton
+      Left = 194
+      Top = 70
+      Width = 25
+      Height = 25
+      Caption = '25'
+      TabOrder = 24
+      OnClick = Button25Click
+    end
+    object Button26: TButton
+      Left = 225
+      Top = 70
+      Width = 25
+      Height = 25
+      Caption = '26'
+      TabOrder = 25
+      OnClick = Button26Click
+    end
+    object Button27: TButton
+      Left = 256
+      Top = 70
+      Width = 25
+      Height = 25
+      Caption = '27'
+      TabOrder = 26
+      OnClick = Button27Click
+    end
+    object Button28: TButton
+      Left = 344
+      Top = 8
+      Width = 129
+      Height = 25
+      Caption = 'Dibujar Cubo Rubik'
+      TabOrder = 27
+      OnClick = Button28Click
+    end
+    object Button29: TButton
+      Left = 504
+      Top = 8
+      Width = 41
+      Height = 25
+      Caption = 'X+'
+      TabOrder = 28
+      OnClick = Button29Click
+    end
+    object Button30: TButton
+      Left = 560
+      Top = 8
+      Width = 41
+      Height = 25
+      Caption = 'X-'
+      TabOrder = 29
+      OnClick = Button30Click
+    end
+    object Button31: TButton
+      Left = 504
+      Top = 39
+      Width = 41
+      Height = 25
+      Caption = 'Y+'
+      TabOrder = 30
+      OnClick = Button31Click
+    end
+    object Button32: TButton
+      Left = 560
+      Top = 39
+      Width = 41
+      Height = 25
+      Caption = 'Y-'
+      TabOrder = 31
+      OnClick = Button32Click
+    end
+    object Button33: TButton
+      Left = 504
+      Top = 70
+      Width = 41
+      Height = 25
+      Caption = 'Z+'
+      TabOrder = 32
+      OnClick = Button33Click
+    end
+    object Button34: TButton
+      Left = 560
+      Top = 70
+      Width = 41
+      Height = 25
+      Caption = 'Z-'
+      TabOrder = 33
+      OnClick = Button34Click
+    end
+    object Button35: TButton
+      Left = 640
+      Top = 24
+      Width = 33
+      Height = 25
+      Caption = 'F'
+      TabOrder = 34
+      OnClick = Button35Click
+    end
+    object Button36: TButton
+      Left = 679
+      Top = 24
+      Width = 33
+      Height = 25
+      Caption = 'F'#39
+      TabOrder = 35
+      OnClick = Button36Click
+    end
+    object Button37: TButton
+      Left = 640
+      Top = 87
+      Width = 33
+      Height = 25
+      Caption = 'R'
+      TabOrder = 36
+      OnClick = Button37Click
+    end
+    object Button38: TButton
+      Left = 679
+      Top = 87
+      Width = 33
+      Height = 25
+      Caption = 'R'#39
+      TabOrder = 37
+      OnClick = Button38Click
+    end
+    object Button39: TButton
+      Left = 640
+      Top = 150
+      Width = 33
+      Height = 25
+      Caption = 'T'
+      TabOrder = 38
+      OnClick = Button39Click
+    end
+    object Button40: TButton
+      Left = 679
+      Top = 150
+      Width = 33
+      Height = 25
+      Caption = 'T'#39
+      TabOrder = 39
+      OnClick = Button40Click
+    end
+    object Button41: TButton
+      Left = 733
+      Top = 24
+      Width = 33
+      Height = 25
+      Caption = 'M'
+      TabOrder = 40
+      OnClick = Button41Click
+    end
+    object Button42: TButton
+      Left = 734
+      Top = 86
+      Width = 33
+      Height = 25
+      Caption = 'M'
+      TabOrder = 41
+      OnClick = Button42Click
+    end
+    object Button43: TButton
+      Left = 734
+      Top = 149
+      Width = 33
+      Height = 25
+      Caption = 'M'
+      TabOrder = 42
+      OnClick = Button43Click
+    end
+    object Button44: TButton
+      Left = 772
+      Top = 24
+      Width = 33
+      Height = 25
+      Caption = 'M'#39
+      TabOrder = 43
+      OnClick = Button44Click
+    end
+    object Button45: TButton
+      Left = 773
+      Top = 86
+      Width = 33
+      Height = 25
+      Caption = 'M'#39
+      TabOrder = 44
+      OnClick = Button45Click
+    end
+    object Button46: TButton
+      Left = 773
+      Top = 150
+      Width = 33
+      Height = 25
+      Caption = 'M'#39
+      TabOrder = 45
+      OnClick = Button46Click
+    end
+    object Button47: TButton
+      Left = 836
+      Top = 150
+      Width = 33
+      Height = 25
+      Caption = 'B'
+      TabOrder = 46
+      OnClick = Button47Click
+    end
+    object Button48: TButton
+      Left = 836
+      Top = 86
+      Width = 33
+      Height = 25
+      Caption = 'L'
+      TabOrder = 47
+      OnClick = Button48Click
+    end
+    object Button49: TButton
+      Left = 836
+      Top = 24
+      Width = 33
+      Height = 25
+      Caption = 'B'
+      TabOrder = 48
+      OnClick = Button49Click
+    end
+    object Button50: TButton
+      Left = 368
+      Top = 39
+      Width = 75
+      Height = 25
+      Caption = 'Reiniciar'
+      TabOrder = 49
+      OnClick = Button50Click
+    end
+    object Button51: TButton
+      Left = 875
+      Top = 24
+      Width = 33
+      Height = 25
+      Caption = 'B'#39
+      TabOrder = 50
+      OnClick = Button51Click
+    end
+    object Button52: TButton
+      Left = 875
+      Top = 87
+      Width = 33
+      Height = 25
+      Caption = 'L'#39
+      TabOrder = 51
+      OnClick = Button52Click
+    end
+    object Button53: TButton
+      Left = 875
+      Top = 150
+      Width = 33
+      Height = 25
+      Caption = 'B'#39
+      TabOrder = 52
+      OnClick = Button53Click
+    end
+    object Edit1: TEdit
+      Left = 137
+      Top = 128
+      Width = 51
+      Height = 21
+      TabOrder = 53
+    end
+    object Button54: TButton
+      Left = 208
+      Top = 101
+      Width = 33
+      Height = 25
+      Caption = 'X+'
+      TabOrder = 54
+      OnClick = Button54Click
+    end
+    object Button55: TButton
+      Left = 247
+      Top = 101
+      Width = 34
+      Height = 25
+      Caption = 'X-'
+      TabOrder = 55
+      OnClick = Button55Click
+    end
+    object Button56: TButton
+      Left = 208
+      Top = 132
+      Width = 33
+      Height = 25
+      Caption = 'Y+'
+      TabOrder = 56
+      OnClick = Button56Click
+    end
+    object Button57: TButton
+      Left = 247
+      Top = 132
+      Width = 34
+      Height = 25
+      Caption = 'Y-'
+      TabOrder = 57
+      OnClick = Button57Click
+    end
+    object Button58: TButton
+      Left = 208
+      Top = 163
+      Width = 33
+      Height = 25
+      Caption = 'Z+'
+      TabOrder = 58
+      OnClick = Button58Click
+    end
+    object Button59: TButton
+      Left = 247
+      Top = 163
+      Width = 34
+      Height = 25
+      Caption = 'Z-'
+      TabOrder = 59
+      OnClick = Button59Click
+    end
+  end
+  object Timer1: TTimer
+    Enabled = False
+    OnTimer = Timer1Timer
+    Left = 616
+    Top = 640
+  end
+end

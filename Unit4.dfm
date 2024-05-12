@@ -4,7 +4,7 @@ object Form4: TForm4
   Caption = 'Form4'
   ClientHeight = 814
   ClientWidth = 1002
-  Color = clBtnFace
+  Color = clBlack
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -19,6 +19,9 @@ object Form4: TForm4
     Top = 8
     Width = 986
     Height = 593
+    OnMouseDown = Image1MouseDown
+    OnMouseMove = Image1MouseMove
+    OnMouseUp = Image1MouseUp
   end
   object Panel1: TPanel
     Left = 8
@@ -27,35 +30,137 @@ object Form4: TForm4
     Height = 199
     BevelEdges = []
     BevelOuter = bvNone
-    Color = clSkyBlue
+    Color = clGray
     TabOrder = 0
     object Label1: TLabel
       Left = 664
       Top = 5
-      Width = 26
-      Height = 13
+      Width = 33
+      Height = 14
       Caption = 'Front'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
     end
     object Label2: TLabel
       Left = 752
       Top = 5
-      Width = 30
-      Height = 13
+      Width = 40
+      Height = 14
       Caption = 'Middle'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
     end
     object Label3: TLabel
       Left = 860
       Top = 5
-      Width = 22
-      Height = 13
+      Width = 28
+      Height = 14
       Caption = 'Back'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
     end
     object Label4: TLabel
-      Left = 27
-      Top = 132
-      Width = 104
-      Height = 13
-      Caption = 'Ingrese Cubo a Rotar'
+      Left = 24
+      Top = 116
+      Width = 178
+      Height = 16
+      Caption = 'Insert Cube for Rotation:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label5: TLabel
+      Left = 664
+      Top = 68
+      Width = 34
+      Height = 14
+      Caption = 'Right'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label6: TLabel
+      Left = 725
+      Top = 66
+      Width = 89
+      Height = 14
+      Caption = 'Middle Vertical'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label7: TLabel
+      Left = 860
+      Top = 67
+      Width = 25
+      Height = 14
+      Caption = 'Left'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label8: TLabel
+      Left = 664
+      Top = 131
+      Width = 23
+      Height = 14
+      Caption = 'Top'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label9: TLabel
+      Left = 718
+      Top = 130
+      Width = 107
+      Height = 14
+      Caption = 'Middle Horizontal'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label10: TLabel
+      Left = 852
+      Top = 130
+      Width = 47
+      Height = 14
+      Caption = 'Bottom'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
     end
     object Button1: TButton
       Left = 8
@@ -63,6 +168,12 @@ object Form4: TForm4
       Width = 25
       Height = 25
       Caption = '1'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 0
       OnClick = Button1Click
     end
@@ -72,6 +183,12 @@ object Form4: TForm4
       Width = 25
       Height = 25
       Caption = '2'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 1
       OnClick = Button2Click
     end
@@ -81,6 +198,12 @@ object Form4: TForm4
       Width = 25
       Height = 25
       Caption = '3'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 2
       OnClick = Button3Click
     end
@@ -90,6 +213,12 @@ object Form4: TForm4
       Width = 25
       Height = 25
       Caption = '4'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 3
       OnClick = Button4Click
     end
@@ -99,6 +228,12 @@ object Form4: TForm4
       Width = 25
       Height = 25
       Caption = '5'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 4
       OnClick = Button5Click
     end
@@ -108,6 +243,12 @@ object Form4: TForm4
       Width = 25
       Height = 25
       Caption = '6'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 5
       OnClick = Button6Click
     end
@@ -117,6 +258,12 @@ object Form4: TForm4
       Width = 25
       Height = 25
       Caption = '7'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 6
       OnClick = Button7Click
     end
@@ -126,6 +273,12 @@ object Form4: TForm4
       Width = 25
       Height = 25
       Caption = '8'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 7
       OnClick = Button8Click
     end
@@ -135,6 +288,12 @@ object Form4: TForm4
       Width = 25
       Height = 25
       Caption = '9'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 8
       OnClick = Button9Click
     end
@@ -144,6 +303,12 @@ object Form4: TForm4
       Width = 25
       Height = 25
       Caption = '10'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 9
       OnClick = Button10Click
     end
@@ -153,6 +318,12 @@ object Form4: TForm4
       Width = 25
       Height = 25
       Caption = '11'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 10
       OnClick = Button11Click
     end
@@ -162,6 +333,12 @@ object Form4: TForm4
       Width = 25
       Height = 25
       Caption = '12'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 11
       OnClick = Button12Click
     end
@@ -171,6 +348,12 @@ object Form4: TForm4
       Width = 25
       Height = 25
       Caption = '13'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 12
       OnClick = Button13Click
     end
@@ -180,6 +363,12 @@ object Form4: TForm4
       Width = 25
       Height = 25
       Caption = '14'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 13
       OnClick = Button14Click
     end
@@ -189,6 +378,12 @@ object Form4: TForm4
       Width = 25
       Height = 25
       Caption = '15'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 14
       OnClick = Button15Click
     end
@@ -198,6 +393,12 @@ object Form4: TForm4
       Width = 25
       Height = 25
       Caption = '16'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 15
       OnClick = Button16Click
     end
@@ -207,6 +408,12 @@ object Form4: TForm4
       Width = 25
       Height = 25
       Caption = '17'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 16
       OnClick = Button17Click
     end
@@ -216,6 +423,12 @@ object Form4: TForm4
       Width = 25
       Height = 25
       Caption = '18'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 17
       OnClick = Button18Click
     end
@@ -225,6 +438,12 @@ object Form4: TForm4
       Width = 25
       Height = 25
       Caption = '19'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 18
       OnClick = Button19Click
     end
@@ -234,6 +453,12 @@ object Form4: TForm4
       Width = 25
       Height = 25
       Caption = '20'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 19
       OnClick = Button20Click
     end
@@ -243,6 +468,12 @@ object Form4: TForm4
       Width = 25
       Height = 25
       Caption = '21'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 20
       OnClick = Button21Click
     end
@@ -252,6 +483,12 @@ object Form4: TForm4
       Width = 25
       Height = 25
       Caption = '22'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 21
       OnClick = Button22Click
     end
@@ -261,6 +498,12 @@ object Form4: TForm4
       Width = 25
       Height = 25
       Caption = '23'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 22
       OnClick = Button23Click
     end
@@ -270,6 +513,12 @@ object Form4: TForm4
       Width = 25
       Height = 25
       Caption = '24'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 23
       OnClick = Button24Click
     end
@@ -279,6 +528,12 @@ object Form4: TForm4
       Width = 25
       Height = 25
       Caption = '25'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 24
       OnClick = Button25Click
     end
@@ -288,6 +543,12 @@ object Form4: TForm4
       Width = 25
       Height = 25
       Caption = '26'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 25
       OnClick = Button26Click
     end
@@ -297,69 +558,118 @@ object Form4: TForm4
       Width = 25
       Height = 25
       Caption = '27'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 26
       OnClick = Button27Click
     end
     object Button28: TButton
-      Left = 344
-      Top = 8
-      Width = 129
+      Left = 328
+      Top = 48
+      Width = 145
       Height = 25
-      Caption = 'Dibujar Cubo Rubik'
+      Caption = 'Draw Rubik'#39's Cube'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 27
       OnClick = Button28Click
     end
     object Button29: TButton
       Left = 504
-      Top = 8
+      Top = 40
       Width = 41
       Height = 25
       Caption = 'X+'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 28
       OnClick = Button29Click
+      OnMouseDown = Image1MouseDown
     end
     object Button30: TButton
       Left = 560
-      Top = 8
+      Top = 40
       Width = 41
       Height = 25
       Caption = 'X-'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 29
       OnClick = Button30Click
     end
     object Button31: TButton
       Left = 504
-      Top = 39
+      Top = 87
       Width = 41
       Height = 25
       Caption = 'Y+'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 30
       OnClick = Button31Click
     end
     object Button32: TButton
       Left = 560
-      Top = 39
+      Top = 87
       Width = 41
       Height = 25
       Caption = 'Y-'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 31
       OnClick = Button32Click
     end
     object Button33: TButton
       Left = 504
-      Top = 70
+      Top = 134
       Width = 41
       Height = 25
       Caption = 'Z+'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 32
       OnClick = Button33Click
     end
     object Button34: TButton
       Left = 560
-      Top = 70
+      Top = 134
       Width = 41
       Height = 25
       Caption = 'Z-'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 33
       OnClick = Button34Click
     end
@@ -369,6 +679,12 @@ object Form4: TForm4
       Width = 33
       Height = 25
       Caption = 'F'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 34
       OnClick = Button35Click
     end
@@ -378,6 +694,12 @@ object Form4: TForm4
       Width = 33
       Height = 25
       Caption = 'F'#39
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 35
       OnClick = Button36Click
     end
@@ -387,6 +709,12 @@ object Form4: TForm4
       Width = 33
       Height = 25
       Caption = 'R'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 36
       OnClick = Button37Click
     end
@@ -396,6 +724,12 @@ object Form4: TForm4
       Width = 33
       Height = 25
       Caption = 'R'#39
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 37
       OnClick = Button38Click
     end
@@ -405,6 +739,12 @@ object Form4: TForm4
       Width = 33
       Height = 25
       Caption = 'T'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 38
       OnClick = Button39Click
     end
@@ -414,6 +754,12 @@ object Form4: TForm4
       Width = 33
       Height = 25
       Caption = 'T'#39
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 39
       OnClick = Button40Click
     end
@@ -423,6 +769,12 @@ object Form4: TForm4
       Width = 33
       Height = 25
       Caption = 'M'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 40
       OnClick = Button41Click
     end
@@ -432,6 +784,12 @@ object Form4: TForm4
       Width = 33
       Height = 25
       Caption = 'M'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 41
       OnClick = Button42Click
     end
@@ -441,6 +799,12 @@ object Form4: TForm4
       Width = 33
       Height = 25
       Caption = 'M'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 42
       OnClick = Button43Click
     end
@@ -450,6 +814,12 @@ object Form4: TForm4
       Width = 33
       Height = 25
       Caption = 'M'#39
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 43
       OnClick = Button44Click
     end
@@ -459,6 +829,12 @@ object Form4: TForm4
       Width = 33
       Height = 25
       Caption = 'M'#39
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 44
       OnClick = Button45Click
     end
@@ -468,6 +844,12 @@ object Form4: TForm4
       Width = 33
       Height = 25
       Caption = 'M'#39
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 45
       OnClick = Button46Click
     end
@@ -477,6 +859,12 @@ object Form4: TForm4
       Width = 33
       Height = 25
       Caption = 'B'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 46
       OnClick = Button47Click
     end
@@ -486,6 +874,12 @@ object Form4: TForm4
       Width = 33
       Height = 25
       Caption = 'L'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 47
       OnClick = Button48Click
     end
@@ -495,15 +889,27 @@ object Form4: TForm4
       Width = 33
       Height = 25
       Caption = 'B'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 48
       OnClick = Button49Click
     end
     object Button50: TButton
-      Left = 368
-      Top = 39
+      Left = 360
+      Top = 111
       Width = 75
       Height = 25
-      Caption = 'Reiniciar'
+      Caption = 'Restart'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 49
       OnClick = Button50Click
     end
@@ -513,6 +919,12 @@ object Form4: TForm4
       Width = 33
       Height = 25
       Caption = 'B'#39
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 50
       OnClick = Button51Click
     end
@@ -522,6 +934,12 @@ object Form4: TForm4
       Width = 33
       Height = 25
       Caption = 'L'#39
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 51
       OnClick = Button52Click
     end
@@ -531,12 +949,18 @@ object Form4: TForm4
       Width = 33
       Height = 25
       Caption = 'B'#39
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 52
       OnClick = Button53Click
     end
     object Edit1: TEdit
-      Left = 137
-      Top = 128
+      Left = 81
+      Top = 138
       Width = 51
       Height = 21
       TabOrder = 53
@@ -547,6 +971,12 @@ object Form4: TForm4
       Width = 33
       Height = 25
       Caption = 'X+'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 54
       OnClick = Button54Click
     end
@@ -556,6 +986,12 @@ object Form4: TForm4
       Width = 34
       Height = 25
       Caption = 'X-'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 55
       OnClick = Button55Click
     end
@@ -565,6 +1001,12 @@ object Form4: TForm4
       Width = 33
       Height = 25
       Caption = 'Y+'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 56
       OnClick = Button56Click
     end
@@ -574,6 +1016,12 @@ object Form4: TForm4
       Width = 34
       Height = 25
       Caption = 'Y-'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 57
       OnClick = Button57Click
     end
@@ -583,6 +1031,12 @@ object Form4: TForm4
       Width = 33
       Height = 25
       Caption = 'Z+'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 58
       OnClick = Button58Click
     end
@@ -592,6 +1046,12 @@ object Form4: TForm4
       Width = 34
       Height = 25
       Caption = 'Z-'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 59
       OnClick = Button59Click
     end
